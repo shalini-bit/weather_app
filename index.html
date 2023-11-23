@@ -6,7 +6,7 @@
     <title>Weather App </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Quicksand&display=swap" rel="stylesheet">
     <link rel ="stylesheet" href ="styles.css">
 </head>
 <body>
@@ -41,23 +41,19 @@
             </div>
         </div>
     </div>
-
-
-<script>
-    const apikey = "9f6dae3929d5bc57576e6994d2832c51";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apikey}`;
-
+    <script>
+        
     const searchBox = document.querySelector(".search input");
     const searchBtn = document.querySelector(".search button");
     const weatherIcon = document.querySelector(".weather-icon");
-
+    const apikey = "9f6dae3929d5bc57576e6994d2832c51";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=`;
     
     async function checkWeather(city){
-        const response = await fetch(apiUrl + `&appid=${apikey}`);
+        const response = await fetch(apiUrl + city + `&appid=${apikey}`);
         if(response.status == 404){
             document.querySelector(".error").style.display = "block";
             document.querySelector(".weather").style.display = "none";
-
         }else {
             var data = await response.json;
         
@@ -88,6 +84,7 @@
         }
 
         document.querySelector(".weather").style.display ="block";
+        document.querySelector(".error").style.display = "none";
         }
 
     } 
@@ -95,10 +92,8 @@
 
     searchBtn.addEventListener("click",()=>{
         checkWeather(searchBox.value);
-    checkWeather();
     })
-</script>
 
-    
+    </script>
 </body>
 </html>

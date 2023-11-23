@@ -13,8 +13,9 @@ body{
 .card {
         width: 90%;
         max-width: 470px;
-        background: linear-gradient(135deg, #00feba, #5b548a);
-        color: #fff;
+background: rgb(63,94,251);
+background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);        
+color: #fff;
         margin: 100px auto 0;
         border-radius: 20px;
         padding: 40px 35px;
@@ -101,9 +102,9 @@ body{
     margin-top: -6px;
 }
 
-.weather{
+/* .weather{
     display: none;
-}
+} */
 
 .error{
     text-align: left;
